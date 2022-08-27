@@ -2,20 +2,31 @@ import React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Grid from '@mui/material/Grid';
+//Хук для отправки асинхронного экшен из redux/post.js
+import { useDispatch } from 'react-redux';
+
+import axios from '../axios';
 
 import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
+import { fetchPosts } from '../redux/slices/post';
 
 export const Home = () => {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+  
   return (
     <>
-      <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
+      <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example" >
         <Tab label="Новые" />
         <Tab label="Популярные" />
       </Tabs>
       <Grid container spacing={4}>
         <Grid xs={8} item>
+          {/* Фейковые статьи */}
           {[...Array(5)].map(() => (
             <Post
               id={1}
@@ -30,6 +41,7 @@ export const Home = () => {
               viewsCount={150}
               commentsCount={3}
               tags={['react', 'fun', 'typescript']}
+              isLoading={true}
               isEditable
             />
           ))}
