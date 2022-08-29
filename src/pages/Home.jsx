@@ -6,11 +6,11 @@ import Grid from '@mui/material/Grid';
 import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
-<<<<<<< HEAD
+
 import { fetchPosts, fetchTags } from '../redux/slices/posts';
-=======
+
 import { fetchPosts } from '../redux/slices/posts';
->>>>>>> ae90182b935736f5581ee809c4f88b3ebf566954
+
 
 //Если isPostsLoading является 'loading' то будет true
 export const Home = () => {
