@@ -10,7 +10,7 @@ import axios from '../axios';
 import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
-import { fetchPosts } from '../redux/slices/post';
+import { fetchPosts } from '../redux/slices/posts';
 
 export const Home = () => {
   const dispatch = useDispatch();
